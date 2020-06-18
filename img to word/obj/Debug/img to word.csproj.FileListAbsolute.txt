@@ -4,3 +4,10 @@ C:\Users\hasanm08\source\repos\img to word\img to word\bin\Debug\img to word.pdb
 C:\Users\hasanm08\source\repos\img to word\img to word\obj\Debug\img to word.csprojAssemblyReference.cache
 C:\Users\hasanm08\source\repos\img to word\img to word\obj\Debug\img to word.exe
 C:\Users\hasanm08\source\repos\img to word\img to word\obj\Debug\img to word.pdb
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\bin\Debug\img to word.exe.config
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\bin\Debug\img to word.exe
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\bin\Debug\img to word.pdb
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.csprojAssemblyReference.cache
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.csproj.CoreCompileInputs.cache
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.exe
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.pdb
