@@ -11,3 +11,5 @@ C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.cspro
 C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.csproj.CoreCompileInputs.cache
 C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.exe
 C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.pdb
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\bin\Debug\System.Drawing.Common.dll
+C:\Users\L340\Desktop\New folder\Img2Doc\img to word\obj\Debug\img to word.csproj.CopyComplete

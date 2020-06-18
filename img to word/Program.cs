@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +19,26 @@ namespace img_to_word
             int n = int.Parse(Console.ReadLine());
             for (int i = n; i > 0; i--)
             {
-                vs.Add(@"C:\Users\L340\Desktop\signal\Signal (" + i.ToString() + ").JPG");
+                string path = @"C:\Users\L340\Desktop\MadarElec - Copy\MadarElec (" + i.ToString() + ").JPG";
+                //System.Drawing.Image img = System.Drawing.Image.FromFile(path);
+                //if (img.Width > img.Height)
+                //{
+                //    //Rotate the image in memory
+                //    img.RotateFlip(RotateFlipType.Rotate90FlipX);
+
+                //    //Delete the file so the new image can be saved
+                //    System.IO.File.Delete(path);
+
+                //    //save the image out to the file
+                //    img.Save(path);
+
+                //    //release image file
+                //    img.Dispose();
+                //}
+
+                vs.Add(path);
             }
+            
             imgtodoc(vs);
         }
 
@@ -41,10 +61,10 @@ namespace img_to_word
                 Console.WriteLine(item + " Done!");
             }
             // file is saved.
-            doc.SaveAs(@"C:\Users\L340\Desktop\signal\hello.doc", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            doc.SaveAs(@"C:\Users\L340\Desktop\MadarElec - Copy\hello.doc", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             // application is now quit.
             WordApp.Quit(Type.Missing, Type.Missing, Type.Missing);
-            ProcessStartInfo info = new ProcessStartInfo(@"C:\Users\L340\Desktop\signal\hello.doc");
+            ProcessStartInfo info = new ProcessStartInfo(@"C:\Users\L340\Desktop\MadarElec - Copy\hello.doc");
             info.Verb = "Print";
             info.CreateNoWindow = true;
             info.WindowStyle = ProcessWindowStyle.Hidden;
