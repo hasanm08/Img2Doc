@@ -13,7 +13,7 @@ namespace img_to_word
         static void Main(string[] args)
         {
             List<string> vs = new List<string>();
-            Console.WriteLine("Pleasse Enter num of pics :");
+            Console.WriteLine("Please Enter num of pics :");
             int n = int.Parse(Console.ReadLine());
             for (int i = n; i > 0; i--)
             {
@@ -33,7 +33,7 @@ namespace img_to_word
             // get the reference of active document
             Microsoft.Office.Interop.Word.Document doc = WordApp.ActiveDocument;
 
-            doc.Content.Text += "\n\n\nCreatedBy ImageToDoc C# App \n Please Report any problems";
+            doc.Content.Text += "\n\n\nCreatedBy ImageToDoc C# App \n Please Report any problems\n t.me/hasanm08 \n https://github.com/hasanm08/Img2Doc";
             foreach (string item in imgs)
             {
 
