@@ -20,7 +20,7 @@ namespace img_to_word
             Path = Console.ReadLine();
             string imageName = "ImageToDoc08";
             DirectoryInfo d = new DirectoryInfo(Path);
-            var infos = d.GetFiles("*.jpg").OrderBy(f => f.CreationTime);
+            var infos = d.EnumerateFiles("*.jpg").OrderBy(f => f.CreationTime);
             int tmp = 0;
             foreach (FileInfo f in infos)
             {
