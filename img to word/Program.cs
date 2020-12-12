@@ -12,48 +12,58 @@ namespace img_to_word
 {
     class Program
     {
+        public static string Path = "";
         static void Main(string[] args)
         {
             List<string> vs = new List<string>();
-            Console.WriteLine("Please Enter num of pics :");
-            int n = int.Parse(Console.ReadLine());
-            for (int i = n; i > 0; i--)
+            Console.WriteLine("Please Enter specified folder Contains jpg images : ");
+            Path = Console.ReadLine();
+            string imageName = "ImageToDoc008";
+            DirectoryInfo d = new DirectoryInfo(Path);
+            FileInfo[] infos = d.GetFiles();
+            int tmp = 0;
+            foreach (FileInfo f in infos)
             {
-                string path = @"C:\Users\L340\Desktop\MadarElec - Copy\MadarElec (" + i.ToString() + ").JPG";
-                //System.Drawing.Image img = System.Drawing.Image.FromFile(path);
-                //if (img.Width > img.Height)
-                //{
-                //    //Rotate the image in memory
-                //    img.RotateFlip(RotateFlipType.Rotate90FlipX);
+                 if(f.Name.Contains(".JPG"))
+                    File.Move(f.FullName, f.FullName.Replace(f.Name, imageName+" ("+(++tmp)+").JPG")); 
+            }
+            for (int i = tmp; i > 0; i--)
+            {
+                string path =Path+ @"\"+imageName+" (" + i.ToString() + ").JPG";
+                Image img = Image.FromFile(path);
+                if (img.Width > img.Height)
+                {
+                    //Rotate the image in memory
+                    img.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
-                //    //Delete the file so the new image can be saved
-                //    System.IO.File.Delete(path);
+                    //Delete the file so the new image can be saved
+                    File.Delete(path);
 
-                //    //save the image out to the file
-                //    img.Save(path);
+                    //save the image out to the file
+                    img.Save(path);
 
-                //    //release image file
-                //    img.Dispose();
-                //}
+                    //release image file
+                    img.Dispose();
+                }
 
                 vs.Add(path);
             }
             
-            imgtodoc(vs);
+            Img2Doc(vs);
         }
 
-        private static void imgtodoc(List<string> imgs)
+        private static void Img2Doc(List<string> imgs)
         {
             // first we are creating application of word.
-            Microsoft.Office.Interop.Word.Application WordApp = new Microsoft.Office.Interop.Word.Application();
+            Application WordApp = new Application();
             // now creating new document.
             WordApp.Documents.Add();
             // see word file behind your program
             WordApp.Visible = true;
             // get the reference of active document
-            Microsoft.Office.Interop.Word.Document doc = WordApp.ActiveDocument;
+            Document doc = WordApp.ActiveDocument;
 
-            doc.Content.Text += "\n\n\nCreatedBy ImageToDoc C# App \n Please Report any problems\n t.me/hasanm08 \n https://github.com/hasanm08/Img2Doc";
+            doc.Content.Text += "\n\n\nCreatedBy ImageToDoc C# App \n Please Report any problems\n hasanm08.github.io \n https://github.com/hasanm08/Img2Doc";
             foreach (string item in imgs)
             {
 
@@ -61,13 +71,15 @@ namespace img_to_word
                 Console.WriteLine(item + " Done!");
             }
             // file is saved.
-            doc.SaveAs(@"C:\Users\L340\Desktop\MadarElec - Copy\hello.doc", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            doc.SaveAs(Path+@"\Output08.doc", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             // application is now quit.
             WordApp.Quit(Type.Missing, Type.Missing, Type.Missing);
-            ProcessStartInfo info = new ProcessStartInfo(@"C:\Users\L340\Desktop\MadarElec - Copy\hello.doc");
-            info.Verb = "Print";
-            info.CreateNoWindow = true;
-            info.WindowStyle = ProcessWindowStyle.Hidden;
+            ProcessStartInfo info = new ProcessStartInfo(Path + @"\Output08.doc")
+            {
+                Verb = "Print",
+                CreateNoWindow = true,
+                WindowStyle = ProcessWindowStyle.Hidden
+            };
             Process.Start(info);
         }
     }
