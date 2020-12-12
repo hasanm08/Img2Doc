@@ -1,0 +1,9 @@
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\bin\Release\img to word.exe.config
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\bin\Release\img to word.exe
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\bin\Release\img to word.pdb
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\bin\Release\System.Drawing.Common.dll
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\obj\Release\img to word.csprojAssemblyReference.cache
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\obj\Release\img to word.csproj.CoreCompileInputs.cache
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\obj\Release\img to word.csproj.CopyComplete
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\obj\Release\img to word.exe
+C:\Users\L340\Desktop\all\image2Doc\Img2Doc\img to word\obj\Release\img to word.pdb

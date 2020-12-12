@@ -18,23 +18,14 @@ namespace img_to_word
             List<string> vs = new List<string>();
             Console.WriteLine("Please Enter specified folder Contains jpg images : ");
             Path = Console.ReadLine();
-            string imageName = "ImageToDoc08";
             DirectoryInfo d = new DirectoryInfo(Path);
-            var infos = d.EnumerateFiles("*.jpg").OrderBy(f => f.CreationTime);
-            int tmp = 0;
+            var infos = d.EnumerateFiles("*.jpg").OrderByDescending(f => f.CreationTime);
             Console.WriteLine("Just Wait ...");
 
+            GC.Collect();
             foreach (FileInfo f in infos)
             {
-                try
-                {
-                    File.Move(f.FullName, f.FullName.Replace(f.Name, imageName+" ("+(++tmp)+").jpg"));
-                }
-                catch { }
-            }
-            for (int i = tmp; i > 0; i--)
-            {
-                string path =Path+ @"\"+imageName+" (" + i.ToString() + ").jpg";
+                string path = (f).FullName;
                 Image img = Image.FromFile(path);
                 if (img.Width > img.Height)
                 {
@@ -55,7 +46,6 @@ namespace img_to_word
             }
             
             Img2Doc(vs);
-            Console.ReadKey(false);
         }
 
         private static void Img2Doc(List<string> imgs)
@@ -94,7 +84,7 @@ namespace img_to_word
                           WindowStyle = ProcessWindowStyle.Hidden
                     };
                     Process.Start(info);
-                    Console.WriteLine("Have A good day :) \n press any key to exit");
+                    Console.WriteLine("Have A good day :) ");
                     return;
                 }
                 else
@@ -104,7 +94,7 @@ namespace img_to_word
             }
             catch (Exception)
             {
-                Console.WriteLine("Have A good day :) \n press any key to exit");
+                Console.WriteLine("Have A good day :) ");
                 return;
             } 
             
