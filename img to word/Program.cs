@@ -22,6 +22,8 @@ namespace img_to_word
             DirectoryInfo d = new DirectoryInfo(Path);
             var infos = d.EnumerateFiles("*.jpg").OrderBy(f => f.CreationTime);
             int tmp = 0;
+            Console.WriteLine("Just Wait ...");
+
             foreach (FileInfo f in infos)
             {
                 try
@@ -53,6 +55,7 @@ namespace img_to_word
             }
             
             Img2Doc(vs);
+            Console.ReadKey(false);
         }
 
         private static void Img2Doc(List<string> imgs)
@@ -62,7 +65,7 @@ namespace img_to_word
             // now creating new document.
             WordApp.Documents.Add();
             // see word file behind your program
-            WordApp.Visible = true;
+            WordApp.Visible = false;
             // get the reference of active document
             Document doc = WordApp.ActiveDocument;
 
@@ -77,13 +80,34 @@ namespace img_to_word
             doc.SaveAs(Path+@"\Output08.doc", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             // application is now quit.
             WordApp.Quit(Type.Missing, Type.Missing, Type.Missing);
-            ProcessStartInfo info = new ProcessStartInfo(Path + @"\Output08.doc")
+            Console.WriteLine("Word File Is Ready : " + Path + @"\Output08.doc");
+            Console.WriteLine("\n\nDo You Want to Print? 1. yes 2. no");
+            try
             {
-                Verb = "Print",
-                CreateNoWindow = true,
-                WindowStyle = ProcessWindowStyle.Hidden
-            };
-            Process.Start(info);
+                int n = int.Parse(Console.ReadLine());
+                if (n==1)
+                {
+                    ProcessStartInfo info = new ProcessStartInfo(Path + @"\Output08.doc")
+                    {
+                          Verb = "Print",
+                          CreateNoWindow = true,
+                          WindowStyle = ProcessWindowStyle.Hidden
+                    };
+                    Process.Start(info);
+                    Console.WriteLine("Have A good day :) \n press any key to exit");
+                    return;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Have A good day :) \n press any key to exit");
+                return;
+            } 
+            
         }
     }
 }
