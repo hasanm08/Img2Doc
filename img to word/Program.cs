@@ -16,7 +16,7 @@ namespace img_to_word
         static void Main(string[] args)
         {
             List<string> vs = new List<string>();
-            Console.WriteLine("Please Enter specified folder Contains jpg images : ");
+            Console.WriteLine("Please Enter  folder path that Contains jpg images : ");
             Path = Console.ReadLine();
             DirectoryInfo d = new DirectoryInfo(Path);
             var infos = d.EnumerateFiles("*.jpg").OrderByDescending(f => f.CreationTime);
