@@ -18,18 +18,21 @@ namespace img_to_word
             List<string> vs = new List<string>();
             Console.WriteLine("Please Enter specified folder Contains jpg images : ");
             Path = Console.ReadLine();
-            string imageName = "ImageToDoc008";
+            string imageName = "ImageToDoc08";
             DirectoryInfo d = new DirectoryInfo(Path);
-            FileInfo[] infos = d.GetFiles();
+            var infos = d.GetFiles("*.jpg").OrderBy(f => f.CreationTime);
             int tmp = 0;
             foreach (FileInfo f in infos)
             {
-                 if(f.Name.Contains(".JPG"))
-                    File.Move(f.FullName, f.FullName.Replace(f.Name, imageName+" ("+(++tmp)+").JPG")); 
+                try
+                {
+                    File.Move(f.FullName, f.FullName.Replace(f.Name, imageName+" ("+(++tmp)+").jpg"));
+                }
+                catch { }
             }
             for (int i = tmp; i > 0; i--)
             {
-                string path =Path+ @"\"+imageName+" (" + i.ToString() + ").JPG";
+                string path =Path+ @"\"+imageName+" (" + i.ToString() + ").jpg";
                 Image img = Image.FromFile(path);
                 if (img.Width > img.Height)
                 {
